@@ -14,5 +14,13 @@
         </form>
 
         <p></p>
+        
+        <p>You are logged in</p>
+        <a th:href="@{/info/{id}(id=${account.id})}">Info</a>
+        <br/>
+        <a th:href="@{/done}">Signups</a>
+        <br/>
+        <a th:href="@{/logout}">Logout</a>
+        
     </body>
 </html>

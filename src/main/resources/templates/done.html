@@ -5,7 +5,30 @@
     </head>
     <body>
 
+        <div th:if="${signup}">
         <h1>Thank you! You have been signed up to the event!</h1>
+
+        <p>Details:</p>
+        <p><span th:text="${signup.name}">name</span>, <span th:text="${signup.address}">address</span></p>
+        
+        </div>
+        
+        <p>Search by name:</p>
+        
+        <form th:action="@{/form/search}" method="POST">
+            <p><input type="text" name="name" id="name"/></p>
+            <p><input type="submit" value="Submit" /></p>
+        </form>
+        
+        <ul>
+            <li th:each="s:${signups}">
+                <a th:href="@{/signups/{name}(name=${s.name})}"><span th:text="${s.name}">name</span></a>
+            </li>
+        </ul>
+
+        <a th:href="@{/form}">Back</a>
+
+        
 
     </body>
 </html>

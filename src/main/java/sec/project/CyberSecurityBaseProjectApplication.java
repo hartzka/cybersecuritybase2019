@@ -10,3 +10,5 @@ public class CyberSecurityBaseProjectApplication {
         SpringApplication.run(CyberSecurityBaseProjectApplication.class);
     }
 }
+
+

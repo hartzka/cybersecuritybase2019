@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Info about the signup</title>
+    </head>
+    <body>
+
+        <h1>Info about the signup</h1>
+       
+
+        <ul>
+            <li th:each="s:${signups}">
+                <span th:utext="${s.address}">value</span>
+            </li>
+        </ul>
+
+        <a th:href="@{/form}">Back</a>
+
+        
+
+    </body>
+</html>
