@@ -7,7 +7,9 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import sec.project.domain.Account;
 import sec.project.repository.AccountRepository;
 
@@ -34,10 +36,19 @@ public class AccountController {
         Account account = new Account();
         account.setUsername(a.getUsername());
         account.setPassword(a.getPassword());
-        //account.set;
-        
+
         accountRepository.save(account);
         model.addAttribute("created", true);
         return "accounts";
+    }
+
+    @PostMapping("/change/{id}")
+    public String change(@PathVariable Long id, @RequestParam String password) {
+        if (accountRepository.findById(id) != null) {
+            Account account = accountRepository.findById(id);
+            account.setPassword(password);
+            accountRepository.save(account);
+        }
+        return "redirect:/info/" + id;
     }
 }

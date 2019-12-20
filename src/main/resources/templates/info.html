@@ -9,12 +9,25 @@
 
         <p>Details:</p>
         <p>Account: <span th:text="${account.username}">name</span>, Password: <span th:text="${account.password}">address</span></p>
-        
-        
+
+        <br/>
+        <p>Change user password:</p>
+
+        <form method="POST" th:action="@{/change/{id}(id=${account.id})}" onsubmit="return validateForm();">
+            <table>
+
+                <tr style="color:white;">
+                    <td>New password: </td><td><input type="password" style="margin: 5px; width: 300px;" class="form-control" placeholder="New password" id="password" name="password"/></td>
+                </tr>
+            </table>
+            <input class="btn btn-primary" style="margin: 20px;" type="submit" value="Update password!"/>
+
+        </form>
+
 
         <a th:href="@{/form}">Back</a>
 
-        
+
 
     </body>
 </html>

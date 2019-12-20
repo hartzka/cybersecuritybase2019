@@ -23,7 +23,6 @@ import sec.project.repository.SignupRepository;
 @Controller
 public class SignupController {
 
-    private Signup currentSignup;
     private DataBaseManager dbm;
 
     @Autowired
@@ -65,7 +64,6 @@ public class SignupController {
         psm.setString(1, name);
         psm.setString(2, address);
         psm.executeUpdate();
-        currentSignup = signup;
         model.addAttribute("signup", signup);
         return "done";
     }
@@ -84,7 +82,6 @@ public class SignupController {
         } catch (SQLException ex) {
             System.out.println(ex);
         }
-        //model.addAttribute("signup", currentSignup);
         model.addAttribute("signups", signups);
         return "done";
     }

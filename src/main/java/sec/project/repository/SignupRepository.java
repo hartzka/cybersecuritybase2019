@@ -8,6 +8,5 @@ public interface SignupRepository extends JpaRepository<Signup, Long> {
 
     List<Signup> findByName(String name);
     
-    
 
 }

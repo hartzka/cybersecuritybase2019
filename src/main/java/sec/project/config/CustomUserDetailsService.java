@@ -1,8 +1,6 @@
 package sec.project.config;
 
 import java.util.Arrays;
-import java.util.Map;
-import java.util.TreeMap;
 import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
